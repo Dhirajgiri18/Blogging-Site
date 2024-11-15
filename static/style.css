@@ -4,3 +4,131 @@
     background-size: cover;
     height: 100vh;
 }
+
+
+
+/* styles.css */
+
+/* Navbar Styles */
+.navbar {
+    background-color: #007bff; /* Change navbar background color */
+    transition: background-color 0.3s ease;
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    padding: 10px 20px; /* Add padding around the text */
+    border-radius: 5px; /* Rounded corners for the box */
+    background-color: white; /* Background color of the box */
+    color: #007bff; /* Text color */
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Hover Effect for E Blogs Box */
+.navbar .navbar-brand:hover {
+    background-color: #ffcc00; /* Hover background color */
+    color: white; /* Text color on hover */
+}
+
+/* Navbar Hover Effect */
+.navbar-nav .nav-link {
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffcc00 !important; /* Hover color */
+    text-decoration: underline; /* Underline text on hover */
+}
+
+/* Search Bar */
+.form-inline input[type="search"] {
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin-right: 10px;
+}
+
+.form-inline button {
+    border-radius: 20px;
+    background-color: #28a745;
+    color: white;
+}
+
+.form-inline button:hover {
+    background-color: #218838;
+}
+
+/* Active Link */
+.nav-item.active .nav-link {
+    color: #ffcc00 !important;
+    font-weight: bold;
+}
+
+
+/* Navbar Responsive */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+}
+
+/* styles.css */
+
+/* Navbar Toggler Button */
+.navbar-toggler {
+    border: whitesmoke; /* Remove default border */
+    background-color: transparent; /* Make background transparent */
+    padding: 10px; /* Add padding around the icon */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Add subtle hover effect */
+}
+
+/* Navbar Toggler Icon */
+.navbar-toggler-icon {
+    width: 30px; /* Set width for each bar */
+    height: 3px; /* Set height for each bar */
+    background-color: white; /* Set the color of the bars */
+    border-radius: 5px; /* Round the edges of the bars */
+    transition: transform 0.3s ease; /* Add transition effect */
+}
+
+/* Toggler Animation (for opening/closing the menu) */
+.navbar-toggler.collapsed .navbar-toggler-icon {
+    transform: rotate(0deg); /* Initial state (icon doesn't rotate) */
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    transform: rotate(45deg); /* When toggled, rotate the icon */
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon:before {
+    transform: rotate(-90deg); /* Rotate the first bar */
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon:after {
+    transform: rotate(-90deg); /* Rotate the second bar */
+}
+
+/* Add a background color when toggled */
+.navbar-toggler.collapsed .navbar-toggler-icon:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
