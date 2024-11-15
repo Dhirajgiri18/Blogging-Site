@@ -1,0 +1,58 @@
+{% extends 'partials/base.html' %}
+{% block title %}Home Page{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <div class="row mt-5 pt-3">
+        <div class="col-md-4">
+            <div class="card my-3 shadow">
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-primary btn-block" type="submit" value="Post">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            {% for post in posts %}
+            <div class="card shadow my-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                            <small>{{ post.date_created }}</small><br>
+                            <small>Posted by: {{ post.author.username }}</small> <!-- Display username -->
+                            <hr>
+                            <a class="h3" href="{% url 'blog-post-detail' post.id %}">{{ post.title }}</a>
+                            <p class="text-justify my-3">
+                                {{ post.content }}
+                            </p>
+                            
+                            {% if post.image %}
+                            <img class="img-fluid mb-2" src="{{ post.image.url }}" alt="Post Image">
+                            {% endif %}
+                            
+                            <!-- Like Button -->
+                            <form method="POST" class="d-inline">
+                                {% csrf_token %}
+                                <input type="hidden" name="post_id" value="{{ post.id }}">
+                                {% if not post.is_liked %}
+                                    <button type="submit" name="like" class="btn btn-sm btn-success">Like</button>
+                                {% else %}
+                                    <button type="submit" class="btn btn-sm btn-secondary" disabled>Liked</button>
+                                {% endif %}
+                            </form>
+                            <!-- Display Like Count -->
+                            <small>{{ post.like_set.count }} Likes</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
